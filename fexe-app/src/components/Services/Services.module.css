@@ -1,0 +1,177 @@
+.services {
+    padding: 8rem 0;
+    background: var(--background);
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Featured Rows: 2 columns (Text Left, Grid Right) */
+.featuredRows {
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+    margin-bottom: 6rem;
+}
+
+.serviceRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    /* or start */
+}
+
+/* Projects Grid (Right side) */
+.projectsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.projectImageContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    /* or 16/9, making them look like cards */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #1a1a1a;
+    transition: transform 0.3s ease;
+}
+
+.projectImageContainer:hover {
+    transform: translateY(-5px);
+}
+
+.projectImage {
+    object-fit: cover;
+}
+
+/* Remove ImageContainer styles from before? No, keeping .projectImage but structure changed. */
+
+/* Content Side */
+.rowContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.rowTitle {
+    font-size: 2.5rem;
+    /* Larger title since header is gone */
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.rowDescription {
+    color: var(--foreground);
+    opacity: 0.8;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .serviceRow {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .projectsGrid {
+        grid-template-columns: 1fr 1fr;
+        /* Keep 2 cols on mobile? or 1? 2 is small. */
+        gap: 1rem;
+    }
+}
+
+
+/* ... previous styles ... */
+
+.iconWrapperRow {
+    width: 60px;
+    height: 60px;
+    background: rgba(109, 40, 217, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+}
+
+/* Secondary Services Grid */
+.secondaryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.secondaryCard {
+    background: var(--secondary);
+    padding: 2rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+:global([data-theme='light']) .secondaryCard {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.secondaryCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+.secondaryIcon {
+    color: var(--primary);
+    background: rgba(109, 40, 217, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.secondaryTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--foreground);
+}
+
+.secondaryDescription {
+    color: var(--foreground);
+    opacity: 0.7;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .serviceRow {
+        grid-template-columns: 1fr;
+        /* Stack on mobile */
+        gap: 3rem;
+    }
+
+    /* ... keep other media queries if needed ... */
+}

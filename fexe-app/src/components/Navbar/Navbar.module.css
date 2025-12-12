@@ -1,0 +1,207 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background: rgba(15, 15, 15, 0.8);
+    /* Default Dark */
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+:global([data-theme='light']) .navbar {
+    background: rgba(255, 255, 255, 0.9);
+    /* White for Day */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+:global([data-theme='dark']) .navbar {
+    background: rgba(10, 10, 10, 0.9);
+    /* Black for Night */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.scrolled {
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    /* Ensure it fills the nav height */
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+}
+
+.logoImage {
+    height: 50px;
+    width: 50px;
+    /* Make it square for round border */
+    object-fit: cover;
+    /* or contain, depending on image. Cover fills the circle */
+    border-radius: 50%;
+    /* Default (Dark Mode for App, but check theme) */
+    /* If logo is Black on White: */
+    /* DAY (White Navbar): Multiply (hides white bg, keeps black text) */
+    mix-blend-mode: multiply;
+}
+
+/* If the logo is an icon on white/black background, we might want to keep mix-blend-mode 
+   or ensure the image itself is transparent. 
+   User asked: "el logo pero en redondo pls y que sea el que no tiene la letra solo el logo" 
+   Assumption: The current logo.jpg or new asset is round/icon-only or needs cropping. 
+   If it's a square image with background, border-radius 50% makes it a circle.
+*/
+/* Night Mode (Black Navbar): Invert (Black->White, White->Black) + Screen (hide Black bg) */
+:global([data-theme='dark']) .logoImage {
+    filter: invert(1);
+    mix-blend-mode: screen;
+}
+
+/* Day Mode Override (just to be safe/explicit, though multiply works on white) */
+:global([data-theme='light']) .logoImage {
+    filter: none;
+    mix-blend-mode: multiply;
+}
+
+/* If the logo is purely black on white:
+   Light mode: plain (black text)
+   Dark mode: invert (white text) + screen (remove black bg)
+*/
+
+.desktopMenu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.navLink {
+    color: #ededed;
+    /* Default White (Dark Mode) */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 0.95rem;
+}
+
+:global([data-theme='light']) .navLink {
+    color: #000000;
+    /* Black for Day Mode */
+}
+
+.navLink:hover {
+    color: var(--primary);
+}
+
+.themeToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ededed;
+    /* Default White */
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+}
+
+:global([data-theme='light']) .themeToggle {
+    color: #000000;
+    /* Black in Day Mode */
+}
+
+.themeToggle:hover {
+    color: var(--primary);
+}
+
+.mobileControls {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menuToggle {
+    display: none;
+    /* Hidden by default on desktop, shown via media query */
+    background: none;
+    border: none;
+    color: var(--foreground);
+    cursor: pointer;
+}
+
+.themeToggleMobile {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--foreground);
+}
+
+/* Mobile Styling */
+.mobileMenu {
+    background: var(--background);
+    backdrop-filter: blur(15px);
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+:global([data-theme='light']) .mobileMenu {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mobileLink {
+    color: #ededed;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+}
+
+:global([data-theme='light']) .mobileLink {
+    color: #000000;
+}
+
+.mobileLink:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .desktopMenu {
+        display: none;
+    }
+
+    .mobileControls {
+        display: flex;
+    }
+
+    .menuToggle {
+        display: block;
+    }
+}

@@ -1,0 +1,168 @@
+.footer {
+    background: black;
+    padding: 4rem 0 0;
+    /* No bottom padding */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.topSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* Push items to edges */
+    align-items: flex-start;
+    /* Align to top usually looks better, but user said centered... let's try center vertical if needed, but text usually top. User said 'centrados todo' inside. */
+    gap: 3rem;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+/* Left Column: Logo & Slogan */
+/* Brand Column (Left - now Centered?) User said "centrando las cosas".
+   Let's keep Brand Left? "arerglame bien el footer centrando las cosas".
+   Usually usually implies centering the CONTENT of the blocks or ALL blocks centered.
+   "Centering things" + "Siguenos icons centered".
+   I will center aligns for all columns to be safe as "centrando las cosas". */
+.brandColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centered */
+    text-align: center;
+    max-width: none;
+    /* remove width constraint if centered */
+}
+
+/* Center Columns: Links/Contact */
+.linksColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centered as requested */
+    text-align: center;
+}
+
+/* Right Column: Socials - Now Centered */
+.socialsColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centered from flex-end */
+    text-align: center;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.tagline {
+    color: #a1a1aa;
+    font-size: 0.95rem;
+}
+
+.linkTitle {
+    font-size: 1.4rem;
+    /* "un poco mas grande" */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-align: center;
+    /* Force center for titles */
+}
+
+/* Adjust alignments for specific columns if using generic classes */
+/* But wait, I need to see the JS to apply these specific classes or target nth-child.
+   Footer.js structure:
+   1. div (Logo)
+   2. div.links (Contacto Directo)
+   3. div.info (Siguenos)
+   I should target them or add classes in JS. Adding classes in JS is safer. */
+
+/* For now, generic fallback if I don't update JS immediately, but I will update JS. */
+.links,
+.info,
+.socials {
+    display: flex;
+    flex-direction: column;
+    /* Ensure vertical stacking */
+    gap: 1.2rem;
+    align-items: center;
+    /* Center items */
+}
+
+.iconRow {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    /* Ensure icons are centered */
+}
+
+.icon {
+    color: #d4d4d8;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.icon:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .topSection {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .brandColumn,
+    .linksColumn,
+    .socialsColumn {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        max-width: none;
+    }
+}
+
+/* Footer Text - Always White */
+.footer,
+.logo,
+.linkTitle,
+.link,
+.icon,
+.tagline,
+.bottomSection {
+    color: #ffffff !important;
+}
+
+.tagline,
+.link,
+.bottomSection {
+    opacity: 0.8;
+}
+
+.link:hover,
+.icon:hover {
+    color: var(--primary) !important;
+    opacity: 1;
+}
+
+/* Bottom section removed */
+.divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0;
+}

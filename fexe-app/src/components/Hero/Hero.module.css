@@ -1,0 +1,112 @@
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding-top: var(--nav-height);
+}
+
+.content {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+.logoContainer {
+    position: relative;
+    margin-bottom: 2rem;
+    width: 250px;
+    /* Increased from default/auto */
+    height: auto;
+    max-width: 80vw;
+}
+
+.logoImage {
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    /* Day Mode (Light bg): Multiply hides white logo bg */
+    mix-blend-mode: multiply;
+}
+
+:global([data-theme='dark']) .logoImage {
+    /* Night Mode (Dark bg): Invert to make text white, Screen to hide what becomes black bg */
+    filter: invert(1);
+    mix-blend-mode: screen;
+}
+
+
+
+.glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+    opacity: 0.4;
+    filter: blur(40px);
+    z-index: -1;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    max-width: 800px;
+}
+
+.gradientText {
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #a1a1aa;
+    max-width: 600px;
+}
+
+.ctaButton {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--foreground);
+    color: var(--background);
+    font-weight: 700;
+    border-radius: 50px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 1.1rem;
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.backgroundBeams {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(109, 40, 217, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(0, 212, 255, 0.08), transparent 25%);
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+}
