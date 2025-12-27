@@ -45,12 +45,18 @@ const Navbar = () => {
                         whileTap={{ scale: 0.95 }}
                     >
                         <Image
-                            src="/fexe-logo-combined.jpg"
+                            src="/logo.jpg"
                             alt="FEXE"
                             width={120}
-                            height={50}
+                            height={120}
                             className={styles.logoImage}
                             priority
+                            style={{
+                                borderRadius: "50%",
+                                boxShadow: theme === "dark"
+                                    ? "0 0 15px 2px rgba(255,255,255,0.7)"
+                                    : "0 0 15px 2px rgba(0,0,0,0.5)"
+                            }}
                         />
                     </motion.div>
                 </Link>

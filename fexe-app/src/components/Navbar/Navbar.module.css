@@ -58,25 +58,19 @@
     /* Default (Dark Mode for App, but check theme) */
     /* If logo is Black on White: */
     /* DAY (White Navbar): Multiply (hides white bg, keeps black text) */
-    mix-blend-mode: multiply;
+    /* mix-blend-mode removed for full color image */
 }
 
-/* If the logo is an icon on white/black background, we might want to keep mix-blend-mode 
-   or ensure the image itself is transparent. 
-   User asked: "el logo pero en redondo pls y que sea el que no tiene la letra solo el logo" 
-   Assumption: The current logo.jpg or new asset is round/icon-only or needs cropping. 
-   If it's a square image with background, border-radius 50% makes it a circle.
-*/
-/* Night Mode (Black Navbar): Invert (Black->White, White->Black) + Screen (hide Black bg) */
+/* Night Mode (Black Navbar): Ensure no filters applied to image */
 :global([data-theme='dark']) .logoImage {
-    filter: invert(1);
-    mix-blend-mode: screen;
+    filter: none;
+    mix-blend-mode: normal;
 }
 
-/* Day Mode Override (just to be safe/explicit, though multiply works on white) */
+/* Day Mode Override */
 :global([data-theme='light']) .logoImage {
     filter: none;
-    mix-blend-mode: multiply;
+    mix-blend-mode: normal;
 }
 
 /* If the logo is purely black on white:

@@ -11,8 +11,16 @@ const services = [
         title: "Landing Pages",
         description: "Páginas de alto impacto diseñadas para convertir visitantes en clientes.",
         projects: [
-            { image: "/images/services/landing-page.png", title: "Landing Page 1" },
-            { image: "/images/services/landing-page.png", title: "Landing Page 2" } // Reusing for now
+            {
+                video: "/Videos/LandingPage1.mp4",
+                title: "Landing Page 1",
+                link: "https://portafolio-rebeca.vercel.app/"
+            },
+            {
+                video: "/Videos/LandingPage2.mp4",
+                title: "Landing Page 2",
+                link: "/"
+            }
         ],
         featured: true
     },
@@ -21,8 +29,16 @@ const services = [
         title: "Catálogos Digitales",
         description: "Exhiba sus productos con elegancia y funcionalidad en cualquier dispositivo.",
         projects: [
-            { image: "/images/services/catalog.png", title: "Catálogo 1" },
-            { image: "/images/services/catalog.png", title: "Catálogo 2" }
+            {
+                video: "/Videos/Catalogo1.mp4",
+                title: "Catálogo 1",
+                link: "https://pulseras-rebe.vercel.app/"
+            },
+            {
+                video: "/Videos/catalogo2.mp4",
+                title: "Catálogo 2",
+                link: "https://app-de-pomodoro.vercel.app/"
+            }
         ],
         featured: true
     },
@@ -31,8 +47,16 @@ const services = [
         title: "Sitios Institucionales",
         description: "Fortalezca su presencia corporativa con un sitio web profesional y confiable.",
         projects: [
-            { image: "/images/services/institutional.png", title: "Sitio 1" },
-            { image: "/images/services/institutional.png", title: "Sitio 2" }
+            {
+                video: "/Videos/Institucional1.mp4",
+                title: "Sitio 1",
+                link: "https://seminario-gray.vercel.app/"
+            },
+            {
+                video: "/Videos/Institucional2.mp4",
+                title: "Sitio 2",
+                link: "https://www.institutonuevosiglo.com.ar/"
+            }
         ],
         featured: true
     },
@@ -90,18 +114,51 @@ const Services = () => {
                             </div>
 
                             <div className={styles.projectsGrid}>
-                                {service.projects.map((project, idx) => (
-                                    <div key={idx} className={styles.projectCard}>
-                                        <div className={styles.projectImageContainer}>
-                                            <Image
-                                                src={project.image}
-                                                alt={project.title}
-                                                fill
-                                                className={styles.projectImage}
-                                            />
+                                {service.projects.map((project, idx) => {
+                                    const Content = () => (
+                                        <>
+                                            {project.video ? (
+                                                <video
+                                                    src={project.video}
+                                                    className={styles.projectImage}
+                                                    autoPlay
+                                                    loop
+                                                    muted
+                                                    playsInline
+                                                    style={{
+                                                        objectFit: "cover",
+                                                        width: "100%",
+                                                        height: "100%",
+                                                        position: "absolute",
+                                                        top: 0,
+                                                        left: 0
+                                                    }}
+                                                />
+                                            ) : (
+                                                <Image
+                                                    src={project.image}
+                                                    alt={project.title}
+                                                    fill
+                                                    className={styles.projectImage}
+                                                />
+                                            )}
+                                        </>
+                                    );
+
+                                    return (
+                                        <div key={idx} className={styles.projectCard}>
+                                            <div className={styles.projectImageContainer}>
+                                                {project.link ? (
+                                                    <a href={project.link} target={project.link.startsWith("http") ? "_blank" : "_self"} rel="noopener noreferrer">
+                                                        <Content />
+                                                    </a>
+                                                ) : (
+                                                    <Content />
+                                                )}
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         </motion.div>
                     ))}

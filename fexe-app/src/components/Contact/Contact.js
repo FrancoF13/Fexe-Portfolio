@@ -124,8 +124,8 @@ const Contact = () => {
                             <div className={styles.infoContent}>
                                 <h3>Email</h3>
                                 <p>Envíanos un correo con los detalles.</p>
-                                <a href="mailto:contacto@fexe.com.ar" className={styles.contactLink}>
-                                    contacto@fexe.com.ar
+                                <a href="mailto:fexe.dev@gmail.com" className={styles.contactLink}>
+                                    fexe.dev@gmail.com
                                 </a>
                             </div>
                         </motion.div>
