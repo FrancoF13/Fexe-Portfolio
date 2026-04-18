@@ -20,6 +20,11 @@ const services = [
                 video: "/Videos/LandingPage2.mp4",
                 title: "Landing Page 2",
                 link: "/"
+            },
+            {
+                video: "/Videos/LandingPage3.webm",
+                title: "Landing Page 3",
+                link: "/"
             }
         ],
         featured: true
@@ -38,6 +43,11 @@ const services = [
                 video: "/Videos/catalogo2.mp4",
                 title: "Catálogo 2",
                 link: "https://app-de-pomodoro.vercel.app/"
+            },
+            {
+                video: "/Videos/catalogo3.webm",
+                title: "Catálogo 3",
+                link: "/"
             }
         ],
         featured: true
