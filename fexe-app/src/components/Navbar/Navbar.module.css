@@ -49,30 +49,19 @@
 }
 
 .logoImage {
-    height: 50px;
-    width: 50px;
-    /* Make it square for round border */
-    object-fit: cover;
-    /* or contain, depending on image. Cover fills the circle */
-    border-radius: 50%;
-    /* Default (Dark Mode for App, but check theme) */
-    /* If logo is Black on White: */
-    /* DAY (White Navbar): Multiply (hides white bg, keeps black text) */
-    /* mix-blend-mode removed for full color image */
+    height: 45px;
+    width: 45px;
+    object-fit: contain;
+    transition: all 0.3s ease;
 }
 
-/* Night Mode (Black Navbar): Ensure no filters applied to image */
-:global([data-theme='dark']) .logoImage {
-    filter: none;
-    mix-blend-mode: normal;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* Day Mode Override */
 :global([data-theme='light']) .logoImage {
-    filter: none;
-    mix-blend-mode: normal;
+    mix-blend-mode: multiply;
+}
+
+:global([data-theme='dark']) .logoImage {
+    filter: invert(1);
+    mix-blend-mode: screen;
 }
 
 /* If the logo is purely black on white:
