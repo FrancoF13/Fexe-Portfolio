@@ -55,13 +55,7 @@
     transition: all 0.3s ease;
 }
 
-:global([data-theme='light']) .logoImage {
-    filter: none;
-}
 
-:global([data-theme='dark']) .logoImage {
-    filter: invert(1);
-}
 
 /* If the logo is purely black on white:
    Light mode: plain (black text)
