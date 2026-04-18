@@ -42,12 +42,12 @@ const services = [
             {
                 video: "/Videos/catalogo3.webm",
                 title: "Catálogo 3",
-                link: "/"
+                link: "https://skybar-eight.vercel.app/"
             },
             {
                 video: "/Videos/catalogo4.webm",
                 title: "Catálogo 4",
-                link: "/"
+                link: "https://joyeria-ag.vercel.app/"
             }
         ],
         featured: true
