@@ -17,8 +17,8 @@ const Hero = () => {
                     <Image
                         src="/fexe-logo-combined.jpg"
                         alt="Fexe Logo"
-                        width={200}
-                        height={200}
+                        width={250}
+                        height={250}
                         className={styles.logoImage}
                         priority
                     />
