@@ -45,7 +45,7 @@ const Navbar = () => {
                         whileTap={{ scale: 0.95 }}
                     >
                         <Image
-                            src="/logo.jpg"
+                            src="/logo-transparent.png"
                             alt="FEXE"
                             width={120}
                             height={120}

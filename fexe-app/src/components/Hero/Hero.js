@@ -15,7 +15,7 @@ const Hero = () => {
                 >
                     <div className={styles.glow}></div>
                     <Image
-                        src="/fexe-logo-combined.jpg"
+                        src="/fexe-logo-transparent.png"
                         alt="Fexe Logo"
                         width={250}
                         height={250}

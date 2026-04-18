@@ -56,12 +56,11 @@
 }
 
 :global([data-theme='light']) .logoImage {
-    mix-blend-mode: multiply;
+    filter: none;
 }
 
 :global([data-theme='dark']) .logoImage {
-    filter: grayscale(1) invert(1) contrast(5);
-    mix-blend-mode: screen;
+    filter: invert(1);
 }
 
 /* If the logo is purely black on white:
