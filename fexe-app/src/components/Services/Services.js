@@ -20,6 +20,11 @@ const services = [
                 video: "/Videos/LandingPage2.mp4",
                 title: "Landing Page 2",
                 link: "/"
+            },
+            {
+                video: "/Videos/LandingPage3.mp4",
+                title: "Landing Page 3",
+                link: "https://agus-repo.vercel.app/"
             }
         ],
         featured: true
@@ -43,11 +48,6 @@ const services = [
                 video: "/Videos/catalogo3.webm",
                 title: "Catálogo 3",
                 link: "https://skybar-eight.vercel.app/"
-            },
-            {
-                video: "/Videos/catalogo4.webm",
-                title: "Catálogo 4",
-                link: "https://joyeria-ag.vercel.app/"
             }
         ],
         featured: true
