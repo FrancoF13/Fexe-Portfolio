@@ -37,7 +37,7 @@ const services = [
             {
                 video: "/Videos/catalogo2.mp4",
                 title: "Catálogo 2",
-                link: "https://app-de-pomodoro.vercel.app/"
+                link: "https://gabineteyosoy.vercel.app/"
             },
             {
                 video: "/Videos/catalogo3.webm",
@@ -60,7 +60,7 @@ const services = [
             {
                 video: "/Videos/Institucional1.mp4",
                 title: "Sitio 1",
-                link: "https://seminario-gray.vercel.app/"
+                link: "https://pagina-web-ineaa.vercel.app/"
             },
             {
                 video: "/Videos/Institucional2.mp4",
